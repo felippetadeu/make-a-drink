@@ -10,7 +10,7 @@ import service from '../../services/cocktail.service';
 import DrinkCard from '../../components/DrinkCard/DrinkCard';
 
 
-const CategoryPage = () => {
+const CategoryDrinks = () => {
   const name = useQuery('name')
 
   const [drinks, setDrinks] = React.useState([])
@@ -36,7 +36,7 @@ const CategoryPage = () => {
   return (
     <PageLayout>
       <Box>
-        <Flex width="100%" pt="250px" >
+        <Flex width="100%" pt="250px" pb="150px">
           <Grid templateColumns="repeat(3, 1fr)" gap={6}>
             {renderDrinks}
           </Grid>
@@ -46,4 +46,4 @@ const CategoryPage = () => {
   )
 }
 
-export default CategoryPage;
+export default CategoryDrinks;

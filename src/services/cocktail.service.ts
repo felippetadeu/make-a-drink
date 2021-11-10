@@ -19,6 +19,9 @@ const service = {
   },
   getRandomDrink: async () => {
     return await http.get(`/json/v1/1/random.php`)
+  },
+  findDrinkById: async (id: Number) => {
+    return await http.get(`/json/v1/1/lookup.php?i=${id.toString()}`)
   }
 }
 

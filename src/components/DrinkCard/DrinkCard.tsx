@@ -5,6 +5,10 @@ import {
   useColorModeValue,
   chakra
 } from '@chakra-ui/react';
+import {
+  useNavigate
+} from 'react-router-dom';
+import useQuery from '../../hooks/useQuery';
 
 interface DrinkCardProps {
   name: string;
@@ -13,8 +17,16 @@ interface DrinkCardProps {
 }
 
 const DrinkCard = ({ name, urlThumb, idDrink }: DrinkCardProps) => {
+
+  const navigate = useNavigate();
+  const categoryName = useQuery('name');
+
+  const handleOnClick = () => {
+    navigate(`/drink?id=${idDrink}&name=${categoryName}`)
+  }
+
   return (
-    <Flex cursor="pointer">
+    <Flex cursor="pointer" onClick={handleOnClick}>
       <Flex
         direction="column"
         justifyContent="center"

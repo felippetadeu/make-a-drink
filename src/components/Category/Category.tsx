@@ -15,7 +15,7 @@ const ACTIVE_HOVER_STYLE = {
   cursor: 'pointer',
   backgroundColor: 'gray.100',
   borderRadius: '15px 0px 0px 15px',
-  color: 'black'
+  color: 'black !important'
 }
 
 const Category = ({ name }: CategoryProps) => {
@@ -26,7 +26,7 @@ const Category = ({ name }: CategoryProps) => {
     <Link to={{pathname: '/category', search: `?name=${name}`}}>
       <Box 
         p={"15px"}
-        __css={activeCategory === name ? ACTIVE_HOVER_STYLE : {}}
+        __css={activeCategory === name ? ACTIVE_HOVER_STYLE : { color: 'gray.100'}}
         _hover={ACTIVE_HOVER_STYLE}>
         {name}
       </Box>

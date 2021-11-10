@@ -10,7 +10,8 @@ import {
   Route
 } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
-import CategoryPage from "./pages/Category/Category";
+import CategoryDrinks from "./pages/CategoryDrinks/CategoryDrinks";
+import Drink from "./pages/Drink/Drink";
 
 export const App = () => {
   return (
@@ -20,7 +21,8 @@ export const App = () => {
           <Sidebar />
           <Routes>
             <Route path="/" />
-            <Route path="/category" element={<CategoryPage />} />
+            <Route path="/category" element={<CategoryDrinks />} />
+            <Route path="/drink" element={<Drink />} />
           </Routes>
         </Flex>
       </Router>
