@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 
 const http = axios.create({
   baseURL: 'https://www.thecocktaildb.com/api'

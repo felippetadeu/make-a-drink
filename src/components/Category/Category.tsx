@@ -26,7 +26,7 @@ const Category = ({ name }: CategoryProps) => {
     <Link to={{pathname: '/category', search: `?name=${name}`}}>
       <Box 
         p={"15px"}
-        __css={activeCategory == name ? ACTIVE_HOVER_STYLE : {}}
+        __css={activeCategory === name ? ACTIVE_HOVER_STYLE : {}}
         _hover={ACTIVE_HOVER_STYLE}>
         {name}
       </Box>

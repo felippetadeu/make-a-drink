@@ -1,5 +1,4 @@
 import * as React from 'react';
-import useQuery from '../../hooks/useQuery';
 import {
   Flex
 } from '@chakra-ui/react';

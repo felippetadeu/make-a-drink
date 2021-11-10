@@ -2,8 +2,7 @@ import * as React from 'react';
 import {
   Grid,
   Flex,
-  Box,
-  Image
+  Box
 } from '@chakra-ui/react';
 import PageLayout from '../../components/PageLayout/PageLayout';
 import useQuery from '../../hooks/useQuery';
