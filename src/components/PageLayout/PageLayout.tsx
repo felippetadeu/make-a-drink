@@ -1,8 +1,10 @@
 import * as React from 'react';
 import {
-  Flex
+  Flex,
+  Box
 } from '@chakra-ui/react';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import FindDrink from '../FindDrink/FindDrink';
 
 interface PageLayoutProps {
   children?: React.ReactNode;
@@ -24,9 +26,12 @@ const PageLayout = ({ children }: PageLayoutProps) => {
 
   return (
     <Flex width="100%">
-      <Flex width="100%" pl="250px" pr="100px">
-        {children}
-      </Flex>
+      <Box width="100%" pl="200px" pr="100px">
+        <FindDrink />
+        <Flex>
+          {children}
+        </Flex>
+      </Box>
       { showScrollToTop ? <ScrollToTop/> : null }
     </Flex>
   )

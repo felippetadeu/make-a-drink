@@ -12,6 +12,8 @@ import {
 import Sidebar from "./components/Sidebar/Sidebar";
 import CategoryDrinks from "./pages/CategoryDrinks/CategoryDrinks";
 import Drink from "./pages/Drink/Drink";
+import Drinks from "./pages/Drinks/Drinks";
+import Home from "./pages/Home/Home";
 
 export const App = () => {
   return (
@@ -20,9 +22,10 @@ export const App = () => {
         <Flex bgColor="gray.100">
           <Sidebar />
           <Routes>
-            <Route path="/" />
+            <Route path="/" element={<Home />} />
             <Route path="/category" element={<CategoryDrinks />} />
             <Route path="/drink" element={<Drink />} />
+            <Route path="/drinks" element={<Drinks />} />
           </Routes>
         </Flex>
       </Router>

@@ -14,15 +14,19 @@ interface DrinkCardProps {
   name: string;
   urlThumb: string;
   idDrink: string;
+  category?: string;
 }
 
-const DrinkCard = ({ name, urlThumb, idDrink }: DrinkCardProps) => {
+const DrinkCard = ({ name, urlThumb, idDrink, category }: DrinkCardProps) => {
 
   const navigate = useNavigate();
   const categoryName = useQuery('name');
 
   const handleOnClick = () => {
-    navigate(`/drink?id=${idDrink}&name=${categoryName}`)
+    if (category)
+      navigate(`/drink?id=${idDrink}&name=${category}`)
+    else
+      navigate(`/drink?id=${idDrink}`)
   }
 
   return (
@@ -50,14 +54,27 @@ const DrinkCard = ({ name, urlThumb, idDrink }: DrinkCardProps) => {
 
         <Box
           w={{ base: 64, md: 72 }}
+          py={2}
           bg={useColorModeValue("white", "gray.800")}
           mt={-5}
           shadow="lg"
           rounded="lg"
           overflow="hidden"
         >
+          {category ? 
+          <chakra.h2
+            textAlign="center"
+            fontWeight="bold"
+            textTransform="uppercase"
+            color={"gray.500"}
+            letterSpacing={1}
+            fontSize="xl"
+          >
+            {category}
+          </chakra.h2>
+          : null
+          }
           <chakra.h3
-            py={2}
             textAlign="center"
             fontWeight="bold"
             textTransform="uppercase"

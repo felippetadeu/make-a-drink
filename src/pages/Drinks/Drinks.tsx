@@ -1,24 +1,25 @@
 import * as React from 'react';
-import {
-  Grid,
-  Flex,
-  Box
-} from '@chakra-ui/react';
-import PageLayout from '../../components/PageLayout/PageLayout';
 import useQuery from '../../hooks/useQuery';
-import service from '../../services/cocktail.service';
+import PageLayout from '../../components/PageLayout/PageLayout';
 import DrinkCard from '../../components/DrinkCard/DrinkCard';
+import {
+  Box,
+  Flex,
+  Grid
+} from '@chakra-ui/react';
+import service from '../../services/cocktail.service';
 
-
-const CategoryDrinks = () => {
-  const name = useQuery('name')
+const Drinks = () => {
+  const name = useQuery('drinkName')
 
   const [drinks, setDrinks] = React.useState([])
 
   React.useEffect(() => {
+    console.log(name)
     const getDrinksByCategory = async () => {
-      const response = await service.listByCategory(name!);
-      setDrinks(response.data.drinks)
+      const response = await service.searchByName(name!);
+      if (response.data && response.data.drinks && response.data.drinks.length > 0)
+        setDrinks(response.data.drinks)
     }
 
     if (name)
@@ -28,7 +29,7 @@ const CategoryDrinks = () => {
   const renderDrinks = React.useMemo(() => {
     return drinks.map((v, i) => {
       return (
-        <DrinkCard key={i} name={v['strDrink']} urlThumb={v['strDrinkThumb']} idDrink={v['idDrink']}></DrinkCard>
+        <DrinkCard key={i} name={v['strDrink']} urlThumb={v['strDrinkThumb']} idDrink={v['idDrink']} category={v['strCategory']}></DrinkCard>
       )
     })
   }, [drinks])
@@ -46,4 +47,4 @@ const CategoryDrinks = () => {
   )
 }
 
-export default CategoryDrinks;
+export default Drinks;
