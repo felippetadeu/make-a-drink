@@ -8,7 +8,6 @@ import {
 import {
   useNavigate
 } from 'react-router-dom';
-import useQuery from '../../hooks/useQuery';
 
 interface DrinkCardProps {
   name: string;
@@ -20,7 +19,6 @@ interface DrinkCardProps {
 const DrinkCard = ({ name, urlThumb, idDrink, category }: DrinkCardProps) => {
 
   const navigate = useNavigate();
-  const categoryName = useQuery('name');
 
   const handleOnClick = () => {
     if (category)
